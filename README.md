@@ -3,7 +3,7 @@
 > Complete Technical Documentation Package
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://usb-c-power-management.vercel.app)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/malaikatauqeer/usb-c-power-management)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/malaika-09/usb-c-power-management)
 
 ---
 
@@ -12,9 +12,9 @@
 **Malaika Tauqeer**  
 *Electrical Engineer | PCB Design Specialist*
 
-📧 Email: malaikatauqeer777@gmail.com  
-💼 LinkedIn: [linkedin.com/in/malaika-tauqeer](https://linkedin.com/in/malaika-tauqeer)  
-🐙 GitHub: [@malaikatauqeer](https://github.com/malaikatauqeer)
+📧 Email: malaikatauqeer00917@gmail.com  
+💼 LinkedIn: [linkedin.com/in/malaika-tauqeer-a364b62b9](https://www.linkedin.com/in/malaika-tauqeer-a364b62b9)  
+🐙 GitHub: [@malaika-09](https://github.com/malaika-09)
 
 ---
 
@@ -85,7 +85,7 @@ usb-c-power-management/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/malaikatauqeer/usb-c-power-management.git
+   git clone https://github.com/malaika-09/usb-c-power-management.git
    ```
 
 2. **Open in browser:**
@@ -125,9 +125,9 @@ usb-c-power-management/
 
 **Malaika Tauqeer**
 
-- 📧 Email: malaikatauqeer777@gmail.com
-- 💼 LinkedIn: [linkedin.com/in/malaika-tauqeer](https://linkedin.com/in/malaika-tauqeer)
-- 🐙 GitHub: [@malaikatauqeer](https://github.com/malaikatauqeer)
+- 📧 Email: malaikatauqeer00917@gmail.com
+- 💼 LinkedIn: [linkedin.com/in/malaika-tauqeer-a364b62b9](https://www.linkedin.com/in/malaika-tauqeer-a364b62b9)
+- 🐙 GitHub: [@malaika-09](https://github.com/malaika-09)
 
 ---
 
