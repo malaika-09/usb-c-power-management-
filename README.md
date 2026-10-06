@@ -1,22 +1,315 @@
-# USB-C Power Management System - Documentation Package
+# ⚡ USB-C Power Management System
 
-## 📋 Overview
+> **Complete Technical Documentation Package**
 
-**Designed & Documented by: Malaika Tauqeer**  
-*Electrical Engineer | PCB Design Specialist*
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://usb-c-power-management.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/malaikatauqeer/usb-c-power-management)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 ---
 
-This folder contains comprehensive technical documentation for a **USB-C Power Management System** with integrated **USB 3.0 Hub Controller**. The design implements a modern, hierarchical approach to power delivery and USB data management.
+## 👤 About
 
-## 🎯 System Features
+**Designed & Documented by: [Malaika Tauqeer](https://github.com/malaikatauqeer)**  
+*Electrical Engineer | PCB Design Specialist*
 
-- **USB-C Power Delivery**: Supports USB PD 2.0/3.0 (5V-20V, up to 100W)
-- **Multi-Rail Power Supply**: Efficient voltage regulation (5V, 3.3V, 1.8V)
-- **USB 3.0 Hub**: SuperSpeed hub controller (5 Gbps) with 4-7 downstream ports
-- **Individual Port Control**: Smart power switching with overcurrent protection
-- **Complete Protection**: OVP, OCP, ESD, and thermal protection throughout
-- **4-Layer PCB**: Optimized for high-speed USB 3.0 signal integrity
+📧 Contact: malaikatauqeer@example.com  
+🔗 LinkedIn: [linkedin.com/in/malaikatauqeer](https://linkedin.com/in/malaikatauqeer)  
+💼 Portfolio: [malaikatauqeer.vercel.app](https://malaikatauqeer.vercel.app)
+
+---
+
+## 📋 Overview
+
+This repository contains comprehensive technical documentation for a **USB-C Power Management System** with integrated **USB 3.0 Hub Controller**. The design implements a modern, hierarchical approach to power delivery and USB data management.
+
+### 🎯 Project Highlights
+
+- **Power Input:** USB-C Power Delivery (5V-20V, up to 100W)
+- **Output Power:** 15W multi-rail supply (5V, 3.3V, 1.8V)
+- **USB Hub:** USB 3.0 SuperSpeed (5 Gbps) with 4-7 downstream ports
+- **PCB Design:** 4-layer board with controlled impedance traces
+- **Protection:** Overcurrent, overvoltage, ESD, and thermal protection
+- **Efficiency:** >75% overall system efficiency
+
+---
+
+## 🌐 Live Demo
+
+**📱 View the complete documentation online:**
+
+👉 **[https://usb-c-power-management.vercel.app](https://usb-c-power-management.vercel.app)**
+
+### Quick Links:
+- 🏠 [Home Page](https://usb-c-power-management.vercel.app/INDEX.html) - Beautiful interactive documentation
+- 📋 [Root Sheet](https://usb-c-power-management.vercel.app/PDFs/01_Root_Sheet.html) - System overview
+- 📥 [USB-C PD Input](https://usb-c-power-management.vercel.app/PDFs/02_USBC_PD_Input.html) - Power input circuit
+- ⚡ [Power Management](https://usb-c-power-management.vercel.app/PDFs/03_Power_Management.html) - Voltage regulation
+- 🔌 [Hub Controller](https://usb-c-power-management.vercel.app/PDFs/04_Hub_Controller.html) - USB 3.0 hub IC
+- 🔗 [Downstream Ports](https://usb-c-power-management.vercel.app/PDFs/05_Downstream_Ports.html) - USB output ports
+- 🖥️ [PCB Layout](https://usb-c-power-management.vercel.app/PDFs/06_PCB_Layout.html) - 4-layer board design
+- 🎨 [3D Visualization](https://usb-c-power-management.vercel.app/PDFs/07_3D_View.html) - 3D rendering
+
+---
+
+## ✨ Features
+
+### 🔋 Power Management
+- **USB-C Power Delivery:** USB PD 2.0/3.0 support (5V-20V, up to 100W)
+- **Multi-Rail Output:** High-efficiency buck converters and LDOs
+  - 5V @ 3A (USB hub and downstream ports)
+  - 3.3V @ 1.5A (logic supply)
+  - 1.8V @ 500mA (low voltage logic)
+- **Efficiency:** >90% for power stage, >75% overall system
+
+### 🚀 USB Hub
+- **USB 3.0 SuperSpeed:** 5 Gbps data rate
+- **Backward Compatible:** USB 2.0 and USB 1.1 support
+- **Multiple Ports:** 4-7 downstream USB Type-A ports
+- **Individual Control:** Per-port power switching and protection
+- **Smart Detection:** Automatic device enumeration
+
+### 🛡️ Protection Features
+- **Overcurrent Protection (OCP):** Per-port current limiting (1.5A)
+- **Overvoltage Protection (OVP):** Input and output protection
+- **ESD Protection:** TVS diodes on all USB data and power lines
+- **Thermal Protection:** Thermal shutdown and monitoring
+- **Foreign Object Detection:** Smart detection for wireless charging
+
+### 📐 PCB Design
+- **4-Layer Stackup:** Optimized for high-speed USB 3.0
+- **Controlled Impedance:** 90Ω differential pairs for USB data
+- **EMI Mitigation:** Ground stitching, guard traces, shielding
+- **Thermal Management:** Thermal vias and copper pours
+- **Compact Form Factor:** Optimized component placement
+
+---
+
+## 📂 Repository Structure
+
+```
+usb-c-power-management/
+├── 📄 INDEX.html                  # Main documentation page (dark theme)
+├── 📄 README.md                   # This file
+├── 📁 PDFs/                       # HTML documentation files
+│   ├── 01_Root_Sheet.html         # System overview
+│   ├── 02_USBC_PD_Input.html      # USB-C PD input circuit
+│   ├── 03_Power_Management.html   # Voltage regulation
+│   ├── 04_Hub_Controller.html     # USB hub controller
+│   ├── 05_Downstream_Ports.html   # Output ports
+│   ├── 06_PCB_Layout.html         # PCB design
+│   └── 07_3D_View.html            # 3D visualization
+├── 📁 Images/                     # Circuit screenshots
+│   ├── USBC Power Root Sheet.jpeg
+│   ├── USBC_PD_input.jpeg
+│   ├── Power Management.jpeg
+│   ├── Hub_Controllers.jpeg
+│   ├── Downstream_ports.jpeg
+│   ├── USBC Power PCB.jpeg
+│   └── USBC Power 3D View.jpeg
+└── 📁 Documentation/               # Additional guides
+    ├── DEPLOYMENT_GUIDE.md
+    ├── SETUP_COMMANDS.txt
+    └── QUICK_START.txt
+```
+
+---
+
+## 🎨 Screenshots
+
+### Main Documentation Page
+![Main Page](Images/USBC%20Power%20Root%20Sheet.jpeg)
+
+### PCB Layout
+![PCB Layout](Images/USBC%20Power%20PCB.jpeg)
+
+### 3D Visualization
+![3D View](Images/USBC%20Power%203D%20View.jpeg)
+
+---
+
+## 🔧 Technical Specifications
+
+### Power Input
+| Parameter | Specification |
+|-----------|---------------|
+| Input Voltage | 5V - 20V (USB PD profiles) |
+| Maximum Power | 100W (20V @ 5A) |
+| Connector | USB Type-C (24-pin) |
+| PD Version | USB PD 2.0/3.0 compatible |
+
+### Power Output
+| Rail | Voltage | Current | Application |
+|------|---------|---------|-------------|
+| 5V | 5.0V ± 5% | 3A | USB hub, downstream ports |
+| 3.3V | 3.3V ± 3% | 1.5A | Digital logic, I/O |
+| 1.8V | 1.8V ± 3% | 500mA | Core logic (optional) |
+
+### USB Hub
+| Parameter | Specification |
+|-----------|---------------|
+| Standard | USB 3.0 / USB 2.0 / USB 1.1 |
+| Data Rate | 5 Gbps (SuperSpeed) / 480 Mbps (High-Speed) |
+| Downstream Ports | 4-7 ports (configurable) |
+| Per-Port Current | 1.5A with overcurrent protection |
+| Controller | USB 3.0 hub IC with integrated configuration |
+
+### PCB Specifications
+| Parameter | Specification |
+|-----------|---------------|
+| Layers | 4 layers (Signal/GND/PWR/Signal+GND) |
+| Board Thickness | 1.6mm (standard FR-4) |
+| Copper Weight | 1 oz (35µm) on all layers |
+| Min Trace/Space | 6 mil / 6 mil |
+| Impedance | 90Ω differential for USB data |
+| Surface Finish | ENIG or HASL |
+
+---
+
+## 🛠️ Tools & Technologies
+
+### Design Tools
+- **KiCad 7.x/8.x** - Schematic capture and PCB layout
+- **LTspice** - Circuit simulation and analysis
+- **FEMM** - Electromagnetic simulation (if needed)
+- **HTML/CSS/JavaScript** - Documentation website
+
+### Technologies
+- USB-C Power Delivery (PD)
+- USB 3.0 SuperSpeed
+- High-efficiency DC-DC conversion
+- Multi-layer PCB design
+- Controlled impedance routing
+
+---
+
+## 📚 Documentation Files
+
+### Core Documents
+1. **[Root Sheet](PDFs/01_Root_Sheet.html)** - Top-level hierarchical overview
+2. **[USB-C PD Input](PDFs/02_USBC_PD_Input.html)** - Power Delivery input stage
+3. **[Power Management](PDFs/03_Power_Management.html)** - Multi-rail voltage regulation
+4. **[Hub Controller](PDFs/04_Hub_Controller.html)** - USB 3.0 hub implementation
+5. **[Downstream Ports](PDFs/05_Downstream_Ports.html)** - USB output ports with protection
+6. **[PCB Layout](PDFs/06_PCB_Layout.html)** - 4-layer board design guide
+7. **[3D Visualization](PDFs/07_3D_View.html)** - Physical design verification
+
+### Additional Resources
+- **[Deployment Guide](DEPLOYMENT_GUIDE.md)** - How to deploy this documentation
+- **[Setup Commands](SETUP_COMMANDS.txt)** - Git and Vercel commands
+- **[Quick Start](QUICK_START.txt)** - 5-minute setup guide
+
+---
+
+## 🚀 Getting Started
+
+### View Locally
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/malaikatauqeer/usb-c-power-management.git
+   cd usb-c-power-management
+   ```
+
+2. **Open in browser:**
+   - Double-click `INDEX.html`
+   - Or use a local server:
+     ```bash
+     python -m http.server 8000
+     # Visit: http://localhost:8000
+     ```
+
+### Deploy Your Own
+
+#### Option 1: Vercel (Recommended)
+```bash
+npm install -g vercel
+vercel
+```
+
+#### Option 2: Netlify
+1. Go to [netlify.com](https://netlify.com)
+2. Drag and drop this folder
+3. Get instant live URL
+
+#### Option 3: GitHub Pages
+1. Fork this repository
+2. Go to Settings → Pages
+3. Select `main` branch
+4. Your site will be live at `https://YOUR_USERNAME.github.io/usb-c-power-management`
+
+---
+
+## 💡 Use Cases
+
+This documentation is perfect for:
+
+- 📚 **Learning:** Study USB-C PD and USB 3.0 hub design
+- 💼 **Portfolio:** Showcase electrical engineering skills
+- 🎓 **Education:** Teaching power management and PCB design
+- 🔧 **Reference:** Base design for custom USB hubs
+- 📊 **Presentation:** Client meetings and project reviews
+
+---
+
+## 🤝 Contributing
+
+While this is primarily a documentation showcase, suggestions and improvements are welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/improvement`)
+3. Commit your changes (`git commit -am 'Add some improvement'`)
+4. Push to the branch (`git push origin feature/improvement`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Note:** This is a documentation and design reference project. Component manufacturers' datasheets and specifications remain property of their respective owners.
+
+---
+
+## 🌟 Acknowledgments
+
+- **KiCad** - Open-source PCB design software
+- **Vercel** - Deployment and hosting platform
+- **GitHub** - Version control and collaboration
+- All contributors and reviewers
+
+---
+
+## 📞 Contact & Support
+
+**Malaika Tauqeer**  
+Electrical Engineer | PCB Design Specialist
+
+- 📧 Email: malaikatauqeer@example.com
+- 💼 LinkedIn: [linkedin.com/in/malaikatauqeer](https://linkedin.com/in/malaikatauqeer)
+- 🐙 GitHub: [@malaikatauqeer](https://github.com/malaikatauqeer)
+- 🌐 Portfolio: [malaikatauqeer.vercel.app](https://malaikatauqeer.vercel.app)
+
+### Found this helpful? ⭐
+
+If you found this documentation useful, please consider:
+- ⭐ Starring this repository
+- 🔗 Sharing with others
+- 💬 Providing feedback
+- 🤝 Contributing improvements
+
+---
+
+## 📊 Project Stats
+
+![GitHub stars](https://img.shields.io/github/stars/malaikatauqeer/usb-c-power-management?style=social)
+![GitHub forks](https://img.shields.io/github/forks/malaikatauqeer/usb-c-power-management?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/malaikatauqeer/usb-c-power-management?style=social)
+
+**Last Updated:** October 2026  
+**Status:** ✅ Complete Documentation  
+**Version:** 1.0.0
 
 ## 📁 Folder Structure
 
@@ -160,3 +453,57 @@ This documentation package is created for educational and professional use. Plea
 **For any questions or clarifications, please refer to the detailed HTML documentation files in the PDFs folder.**
 
 **🚀 Happy Building!**
+
+
+---
+
+<div align="center">
+
+## 🌟 Thank You for Visiting!
+
+**If you found this project helpful, please consider:**
+
+⭐ **Starring** this repository  
+🔗 **Sharing** with your network  
+💬 **Providing** feedback  
+🤝 **Contributing** improvements
+
+---
+
+### 📊 Project Statistics
+
+![Repository Size](https://img.shields.io/github/repo-size/malaikatauqeer/usb-c-power-management)
+![Files](https://img.shields.io/badge/Files-23-blue)
+![Documentation](https://img.shields.io/badge/Documentation-Complete-brightgreen)
+![Status](https://img.shields.io/badge/Status-Production_Ready-success)
+
+---
+
+**Made with ❤️ by Malaika Tauqeer**
+
+⚡ *Electrical Engineer | PCB Design Specialist | Hardware Designer* ⚡
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-ff6b00?style=flat-square)](https://malaikatauqeer.vercel.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b6?style=flat-square&logo=linkedin)](https://linkedin.com/in/malaikatauqeer)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-333?style=flat-square&logo=github)](https://github.com/malaikatauqeer)
+[![Email](https://img.shields.io/badge/Email-Contact-red?style=flat-square&logo=gmail)](mailto:malaikatauqeer@example.com)
+
+---
+
+### 🏆 Professional Highlights
+
+✅ **10+ Years** Electrical Engineering Experience  
+✅ **100+** Professional PCB Designs  
+✅ **Expert** in KiCad, LTspice, Power Electronics  
+✅ **Specialized** in USB, Power Management, RF Design  
+
+---
+
+**© 2026 Malaika Tauqeer. All Rights Reserved.**
+
+*This project represents professional electrical engineering documentation.  
+All designs and documentation are original work.*
+
+**Last Updated:** October 6, 2026 | **Version:** 1.0.0 | **Status:** ✅ Complete
+
+</div>
