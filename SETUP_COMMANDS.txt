@@ -1,0 +1,224 @@
+=======================================================
+🚀 GITHUB + VERCEL SETUP COMMANDS
+=======================================================
+
+📋 STEP 1: OPEN POWERSHELL/CMD
+-------------------------------
+1. Right-click on "Project_Documentation" folder
+2. Select "Open in Terminal" or "Open PowerShell here"
+
+OR
+
+1. Press Win + R
+2. Type: powershell
+3. Press Enter
+4. Type: cd "e:\OneDrive\Desktop\kicad pcb\Project_Documentation"
+
+
+📋 STEP 2: GIT SETUP (Run these commands one by one)
+----------------------------------------------------
+
+# Initialize Git
+git init
+
+# Add your name and email (replace with your GitHub details)
+git config user.name "Malaika Tauqeer"
+git config user.email "your-email@example.com"
+
+# Add all files
+git add .
+
+# First commit
+git commit -m "Initial commit: USB-C Power Management Documentation"
+
+
+📋 STEP 3: CREATE GITHUB REPOSITORY
+------------------------------------
+1. Go to: https://github.com/new
+2. Repository name: usb-c-power-management
+3. Description: USB-C Power Management System - Complete Technical Documentation
+4. Select: Public
+5. DO NOT initialize with README (already have one)
+6. Click: "Create repository"
+
+7. Copy the repository URL (will look like):
+   https://github.com/YOUR_USERNAME/usb-c-power-management.git
+
+
+📋 STEP 4: PUSH TO GITHUB
+--------------------------
+
+# Add remote (replace YOUR_USERNAME with your GitHub username)
+git remote add origin https://github.com/YOUR_USERNAME/usb-c-power-management.git
+
+# Push to GitHub
+git branch -M main
+git push -u origin main
+
+# Enter your GitHub credentials if asked
+
+
+📋 STEP 5: DEPLOY ON VERCEL
+----------------------------
+Option A: Using Browser (EASIEST)
+----------------------------------
+1. Go to: https://vercel.com/dashboard
+2. Click: "Add New..." → "Project"
+3. Click: "Import Git Repository"
+4. Find: usb-c-power-management
+5. Click: "Import"
+6. Keep all settings default
+7. Click: "Deploy"
+8. Wait 1-2 minutes
+9. DONE! You'll get a live URL like:
+   https://usb-c-power-management.vercel.app
+
+
+Option B: Using Vercel CLI (Advanced)
+--------------------------------------
+# Install Vercel CLI (if not installed)
+npm install -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy
+vercel
+
+# Follow prompts:
+- Set up and deploy? Y
+- Which scope? (your account)
+- Link to existing project? N
+- What's your project's name? usb-c-power-management
+- In which directory is your code located? ./
+- Want to modify settings? N
+
+# Production deploy
+vercel --prod
+
+
+=======================================================
+✅ AFTER DEPLOYMENT
+=======================================================
+
+Your live URLs will be:
+
+Main page:
+https://usb-c-power-management.vercel.app
+(or)
+https://usb-c-power-management-YOUR-USERNAME.vercel.app
+
+Direct INDEX:
+https://usb-c-power-management.vercel.app/INDEX.html
+
+PDF Pages:
+https://usb-c-power-management.vercel.app/PDFs/01_Root_Sheet.html
+https://usb-c-power-management.vercel.app/PDFs/02_USBC_PD_Input.html
+... etc
+
+
+=======================================================
+📱 SHARE YOUR LINKS
+=======================================================
+
+Add to:
+✅ LinkedIn: "Check out my USB-C Power Management documentation"
+✅ Resume: Projects section
+✅ Portfolio: Link in bio
+✅ Email signature
+
+Example:
+---------
+🔌 USB-C Power Management System
+📚 Documentation: https://usb-c-power-management.vercel.app
+👤 Designed by: Malaika Tauqeer
+🔗 GitHub: https://github.com/YOUR_USERNAME/usb-c-power-management
+
+
+=======================================================
+🔧 TROUBLESHOOTING
+=======================================================
+
+If Git is not installed:
+------------------------
+1. Download: https://git-scm.com/download/win
+2. Install with default settings
+3. Restart PowerShell
+4. Try commands again
+
+
+If images don't show:
+---------------------
+1. Check Images folder uploaded
+2. Check file paths in HTML files
+3. Clear browser cache (Ctrl + Shift + R)
+4. Redeploy on Vercel
+
+
+To update website later:
+------------------------
+1. Make changes to files
+2. Run:
+   git add .
+   git commit -m "Updated documentation"
+   git push
+
+3. Vercel auto-deploys in 30 seconds!
+
+
+=======================================================
+💡 QUICK TIP
+=======================================================
+
+Custom Domain (Optional):
+-------------------------
+If you want: https://malaikatauqeer.com
+
+1. Buy domain from Namecheap/GoDaddy
+2. Vercel Dashboard → Project Settings → Domains
+3. Add your domain
+4. Follow DNS instructions
+5. Done!
+
+
+=======================================================
+📞 NEED HELP?
+=======================================================
+
+If stuck:
+1. Check GitHub repository is public
+2. Check all files uploaded
+3. Check Vercel connected to GitHub
+4. Try redeploying from Vercel dashboard
+
+Common Issues:
+--------------
+❌ "git not found" → Install Git from git-scm.com
+❌ "Permission denied" → Check GitHub credentials
+❌ "Images not loading" → Check Images folder uploaded
+❌ "404 error" → Check file paths are correct
+
+
+=======================================================
+✅ SUCCESS CHECKLIST
+=======================================================
+
+□ Git initialized
+□ Files committed
+□ Pushed to GitHub
+□ Repository is public
+□ Vercel connected
+□ Site deployed
+□ All pages working
+□ Images loading
+□ Links shared!
+
+
+=======================================================
+🎉 CONGRATULATIONS!
+=======================================================
+
+Your portfolio is now LIVE on the internet!
+
+Share it proudly! 🚀
+

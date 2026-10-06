@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downstream USB Ports</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #fd7e14;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #fd7e14;
+            margin: 0;
+            font-size: 32px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .description {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #fd7e14;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .info-box {
+            background: #ffe5cc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #fd7e14;
+        }
+        .port-card {
+            background: white;
+            border: 2px solid #fd7e14;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .port-card h3 {
+            color: #fd7e14;
+            margin-top: 0;
+        }
+        .feature-list {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔗 Downstream USB Ports</h1>
+        <p style="font-size: 18px; color: #666; margin-top: 10px;">USB Output Port Configuration & Protection</p>
+    </div>
+
+    <h2>📋 Module Overview</h2>
+    <div class="description">
+        <p><strong>Function:</strong> Physical USB port implementation with power switching and protection</p>
+        <p><strong>Purpose:</strong> Provides safe, controlled power and data connections for downstream USB devices</p>
+        <p><strong>Components:</strong> USB connectors, power switches, protection circuits, ESD protection</p>
+    </div>
+
+    <h2>📸 Downstream Ports Schematic</h2>
+    <div class="image-container">
+        <img src="../Images/Downstream_ports.jpeg" alt="Downstream USB Ports Schematic">
+        <p style="margin-top: 10px; color: #666;"><em>Figure 1: Downstream USB port circuits with individual power control and protection</em></p>
+    </div>
+
+    <h2>🔌 Port Architecture</h2>
+    
+    <div class="port-card">
+        <h3>Port 1-4: USB 3.0 Type-A Connectors</h3>
+        <p><strong>Connector Type:</strong> USB 3.0 Type-A female (9-pin)</p>
+        <p><strong>Data Support:</strong> USB 3.0 SuperSpeed (5 Gbps) + USB 2.0 fallback</p>
+        <p><strong>Power Capability:</strong> 5V @ 1.5A per port (max)</p>
+        <div class="feature-list">
+            <strong>Pin Configuration:</strong>
+            <ul>
+                <li>VBUS (Pin 1) - 5V power output with switching</li>
+                <li>D- (Pin 2) - USB 2.0 data negative</li>
+                <li>D+ (Pin 3) - USB 2.0 data positive</li>
+                <li>GND (Pin 4) - Ground reference</li>
+                <li>SSTX+/- (Pins 5,6) - SuperSpeed transmit pair</li>
+                <li>SSRX+/- (Pins 8,9) - SuperSpeed receive pair</li>
+                <li>Shield - ESD protection to chassis ground</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>⚡ Power Distribution & Control</h2>
+    <div class="info-box">
+        <h3>Power Switching Features:</h3>
+        <ul>
+            <li><strong>Individual Control:</strong> Each port has independent power switch</li>
+            <li><strong>Current Limiting:</strong> 1.5A limit per port (adjustable)</li>
+            <li><strong>Soft-Start:</strong> Inrush current limiting on power-up</li>
+            <li><strong>Fast Switching:</strong> Quick response to hub controller commands</li>
+        </ul>
+        <h3>Control Signals:</h3>
+        <ul>
+            <li>PORT_PWR_EN[1-4] - Enable/disable signals from hub controller</li>
+            <li>PORT_FAULT[1-4] - Overcurrent fault status to hub controller</li>
+        </ul>
+    </div>
+
+    <h2>🛡️ Protection Circuitry</h2>
+    <div class="description">
+        <h3>Per-Port Protection:</h3>
+        <ul>
+            <li><strong>Overcurrent Protection:</strong> 1.5A limit with automatic shutdown and fault reporting</li>
+            <li><strong>ESD Protection:</strong> TVS diodes on all data lines (D+, D-, SSTX, SSRX)</li>
+            <li><strong>Short-Circuit Protection:</strong> Fast current limit response</li>
+            <li><strong>Reverse Current Protection:</strong> Prevents backfeeding</li>
+            <li><strong>Thermal Protection:</strong> Power switch thermal shutdown</li>
+        </ul>
+    </div>
+
+    <h2>📊 Electrical Specifications</h2>
+    <div class="port-card">
+        <h3>Power Specifications:</h3>
+        <ul>
+            <li><strong>Output Voltage:</strong> 5.0V ± 5% (4.75V - 5.25V per USB spec)</li>
+            <li><strong>Current per Port:</strong> Up to 1.5A (USB 3.0 specification)</li>
+            <li><strong>Total Power Budget:</strong> 6A across all 4 ports (managed)</li>
+            <li><strong>Voltage Drop:</strong> <100mV at full load</li>
+        </ul>
+        <h3>Data Specifications:</h3>
+        <ul>
+            <li><strong>USB 3.0 Rate:</strong> 5 Gbps (SuperSpeed)</li>
+            <li><strong>USB 2.0 Rate:</strong> 480 Mbps (High-Speed)</li>
+            <li><strong>Impedance:</strong> 90Ω differential (USB 3.0), 90Ω differential (USB 2.0)</li>
+            <li><strong>Signal Integrity:</strong> Series termination on all data lines</li>
+        </ul>
+    </div>
+
+    <h2>🔧 Component Details</h2>
+    <div class="info-box">
+        <h3>Key Components per Port:</h3>
+        <ul>
+            <li><strong>USB Connector:</strong> USB 3.0 Type-A receptacle</li>
+            <li><strong>Power Switch:</strong> High-side load switch with current limit</li>
+            <li><strong>ESD Protection:</strong> Low-capacitance TVS diode arrays</li>
+            <li><strong>Status LED:</strong> Power/activity indicator (optional)</li>
+            <li><strong>Decoupling:</strong> Bulk + ceramic capacitors near connector</li>
+            <li><strong>Series Resistors:</strong> 22-33Ω on SSTX/SSRX for signal integrity</li>
+        </ul>
+    </div>
+
+    <h2>🔗 Connections</h2>
+    <div class="description">
+        <p><strong>From Hub Controller Module:</strong></p>
+        <ul>
+            <li>USB 3.0 data lanes (SSTX/SSRX pairs for each port)</li>
+            <li>USB 2.0 data lines (D+/D- for each port)</li>
+            <li>Port power enable signals</li>
+            <li>Overcurrent fault inputs</li>
+        </ul>
+        <p><strong>From Power Management Module:</strong></p>
+        <ul>
+            <li>5V main rail for port power</li>
+            <li>3.3V for power switch logic</li>
+        </ul>
+        <p><strong>To External Devices:</strong></p>
+        <ul>
+            <li>USB Type-A connectors for device connection</li>
+            <li>Mounting holes for mechanical stability</li>
+        </ul>
+    </div>
+
+    <h2>🎯 Design Features</h2>
+    <div class="info-box">
+        <ul>
+            <li>✅ Hot-plug capable - safe insertion and removal</li>
+            <li>✅ Automatic device detection</li>
+            <li>✅ Individual port control from hub controller</li>
+            <li>✅ Fault reporting and recovery</li>
+            <li>✅ LED indicators for port status (optional)</li>
+            <li>✅ Proper impedance matching for high-speed signals</li>
+            <li>✅ Common-mode choke filtering for EMI reduction</li>
+        </ul>
+    </div>
+
+    <h2>📐 PCB Layout Considerations</h2>
+    <div class="description">
+        <ul>
+            <li>Differential pair routing for USB 3.0 (SSTX, SSRX)</li>
+            <li>Controlled impedance traces (90Ω differential)</li>
+            <li>Length matching within pairs (<5 mils difference)</li>
+            <li>Ground plane underneath USB traces</li>
+            <li>Keep power and data lines separated</li>
+            <li>ESD protection placed close to connectors</li>
+            <li>Star ground configuration for clean return paths</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>USB-C Power Management System - Downstream Ports Module</p>
+        <p>Designed by: <strong>Malaika Tauqeer</strong> | Generated: October 2026</p>
+        <p>USB 3.0 multi-port output with protection and control</p>
+    </div>
+</body>
+</html>

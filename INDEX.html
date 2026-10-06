@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USB-C Power Management System - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1729 100%);
+        }
+        
+        .background-animation::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%);
+            top: -250px;
+            left: -250px;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .background-animation::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,119,182,0.15) 0%, transparent 70%);
+            bottom: -200px;
+            right: -200px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(100px, -100px) rotate(120deg); }
+            66% { transform: translate(-50px, 50px) rotate(240deg); }
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header with Glassmorphism */
+        .hero {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,107,0,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff6b00 0%, #ffd700 50%, #ff6b00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255,107,0,0.3);
+            animation: gradient-shift 3s ease infinite;
+            background-size: 200% auto;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: #b8c5d6;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .designer-badge {
+            display: inline-block;
+            background: rgba(255, 107, 0, 0.1);
+            border: 2px solid rgba(255, 107, 0, 0.3);
+            border-radius: 50px;
+            padding: 15px 40px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .designer-badge:hover {
+            background: rgba(255, 107, 0, 0.2);
+            border-color: rgba(255, 107, 0, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+        }
+        
+        .designer-badge h3 {
+            color: #ff6b00;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        
+        .designer-badge p {
+            color: #ffd700;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .designer-badge .role {
+            font-size: 14px;
+            color: #b8c5d6;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+        
+        /* Section Headers */
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            color: #ff6b00;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff6b00, transparent);
+            border-radius: 2px;
+        }
+        
+        /* Document Grid */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        /* Document Cards - Modern Design */
+        .doc-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--card-color), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .doc-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .doc-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--card-color);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                        0 0 40px var(--card-glow);
+        }
+        
+        .card-root { --card-color: #0077b6; --card-glow: rgba(0, 119, 182, 0.2); }
+        .card-usbc { --card-color: #00b4d8; --card-glow: rgba(0, 180, 216, 0.2); }
+        .card-power { --card-color: #ffd700; --card-glow: rgba(255, 215, 0, 0.2); }
+        .card-hub { --card-color: #ff6b00; --card-glow: rgba(255, 107, 0, 0.2); }
+        .card-ports { --card-color: #ff9500; --card-glow: rgba(255, 149, 0, 0.2); }
+        .card-pcb { --card-color: #ff0054; --card-glow: rgba(255, 0, 84, 0.2); }
+        .card-3d { --card-color: #00ff88; --card-glow: rgba(0, 255, 136, 0.2); }
+        
+        .doc-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 0 10px var(--card-glow));
+            transition: transform 0.3s ease;
+        }
+        
+        .doc-card:hover .doc-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .doc-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 48px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .doc-card:hover .doc-number {
+            color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+        
+        .doc-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--card-color);
+            transition: color 0.3s ease;
+        }
+        
+        .doc-description {
+            font-size: 15px;
+            color: #b8c5d6;
+            line-height: 1.8;
+        }
+        
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 107, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            background: rgba(255, 107, 0, 0.08);
+            border-color: rgba(255, 107, 0, 0.5);
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: #ff6b00;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .feature-card p {
+            color: #b8c5d6;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .info-box h2 {
+            color: #ff6b00;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .info-box p, .info-box ul {
+            color: #b8c5d6;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .info-box li {
+            margin-bottom: 10px;
+        }
+        
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 107, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            background: rgba(255, 107, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 900;
+            color: #ff6b00;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #b8c5d6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 60px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer h3 {
+            color: #ffd700;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .footer p {
+            color: #b8c5d6;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        
+        .footer strong {
+            color: #ff6b00;
+            font-weight: 700;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .doc-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+        
+        /* Scroll Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero animate-on-scroll">
+            <div class="hero-title">⚡ USB-C Power Management System</div>
+            <div class="hero-subtitle">Complete Technical Documentation Package</div>
+            <div class="hero-subtitle" style="font-size: 18px; color: #8a99ad;">Hierarchical Design • USB 3.0 Hub • Power Delivery</div>
+            
+            <div class="designer-badge">
+                <h3>⚡ Designed & Documented By</h3>
+                <p>Malaika Tauqeer</p>
+                <p class="role">Electrical Engineer | PCB Design Specialist</p>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-grid animate-on-scroll">
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Documentation Files</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">PCB Layers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15W</div>
+                <div class="stat-label">Power Output</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">USB 3.0</div>
+                <div class="stat-label">High-Speed Hub</div>
+            </div>
+        </div>
+
+        <!-- Project Overview -->
+        <div class="info-box animate-on-scroll">
+            <h2>📋 Project Overview</h2>
+            <p style="font-size: 18px; margin-bottom: 20px;">
+                This documentation package contains a complete technical design for a <strong style="color: #ff6b00;">USB-C Power Management System</strong> 
+                with integrated <strong style="color: #ff6b00;">USB 3.0 Hub Controller</strong>. The design implements a modern, 
+                hierarchical approach to power delivery and USB data management.
+            </p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🔋 USB-C PD Support</h3>
+                    <p>USB Power Delivery 2.0/3.0 with voltage negotiation from 5V to 20V, supporting up to 100W power delivery.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Multi-Rail Power</h3>
+                    <p>Efficient voltage regulation providing 5V, 3.3V, and 1.8V rails with high-efficiency buck converters and LDOs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🚀 USB 3.0 Hub</h3>
+                    <p>Full USB 3.0 SuperSpeed support (5 Gbps) with backward compatibility for USB 2.0 and USB 1.1 devices.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔌 Multi-Port Output</h3>
+                    <p>4-7 downstream USB Type-A ports with individual power control and protection, each supporting up to 1.5A.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ Complete Protection</h3>
+                    <p>Overcurrent, overvoltage, ESD, and thermal protection on all power and data lines for maximum reliability.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📏 Compact Design</h3>
+                    <p>4-layer PCB optimized for space efficiency with proper thermal management and signal integrity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documentation Files -->
+        <div class="section animate-on-scroll">
+            <h2 class="section-title">📚 Documentation Files</h2>
+            
+            <div class="doc-grid">
+                <a href="PDFs/01_Root_Sheet.html" class="doc-card card-root">
+                    <span class="doc-number">01</span>
+                    <span class="doc-icon">📋</span>
+                    <div class="doc-title">Root Sheet</div>
+                    <div class="doc-description">
+                        Top-level hierarchical overview showing all system modules and their interconnections. 
+                        The entry point to understand the complete system architecture.
+                    </div>
+                </a>
+
+                <a href="PDFs/02_USBC_PD_Input.html" class="doc-card card-usbc">
+                    <span class="doc-number">02</span>
+                    <span class="doc-icon">📥</span>
+                    <div class="doc-title">USB-C PD Input</div>
+                    <div class="doc-description">
+                        USB-C Power Delivery input circuit with connector, CC line configuration, and power negotiation. 
+                        Supports 5V-20V PD profiles up to 100W.
+                    </div>
+                </a>
+
+                <a href="PDFs/03_Power_Management.html" class="doc-card card-power">
+                    <span class="doc-number">03</span>
+                    <span class="doc-icon">⚡</span>
+                    <div class="doc-title">Power Management</div>
+                    <div class="doc-description">
+                        Multi-rail voltage regulation with buck converters and LDOs. Provides 5V, 3.3V, and 1.8V rails 
+                        with protection and monitoring.
+                    </div>
+                </a>
+
+                <a href="PDFs/04_Hub_Controller.html" class="doc-card card-hub">
+                    <span class="doc-number">04</span>
+                    <span class="doc-icon">🔌</span>
+                    <div class="doc-title">USB Hub Controller</div>
+                    <div class="doc-description">
+                        USB 3.0/2.0 hub controller IC with crystal oscillator, configuration, and support circuitry. 
+                        Manages 4-7 downstream USB ports with 5 Gbps data rate.
+                    </div>
+                </a>
+
+                <a href="PDFs/05_Downstream_Ports.html" class="doc-card card-ports">
+                    <span class="doc-number">05</span>
+                    <span class="doc-icon">🔗</span>
+                    <div class="doc-title">Downstream Ports</div>
+                    <div class="doc-description">
+                        USB Type-A output ports with individual power switching, overcurrent protection, and ESD protection. 
+                        Each port supports up to 1.5A.
+                    </div>
+                </a>
+
+                <a href="PDFs/06_PCB_Layout.html" class="doc-card card-pcb">
+                    <span class="doc-number">06</span>
+                    <span class="doc-icon">🖥️</span>
+                    <div class="doc-title">PCB Layout</div>
+                    <div class="doc-description">
+                        4-layer PCB design with high-speed USB 3.0 routing, impedance-controlled traces, and proper 
+                        power distribution. Complete layout specifications included.
+                    </div>
+                </a>
+
+                <a href="PDFs/07_3D_View.html" class="doc-card card-3d">
+                    <span class="doc-number">07</span>
+                    <span class="doc-icon">🎨</span>
+                    <div class="doc-title">3D Visualization</div>
+                    <div class="doc-description">
+                        Photorealistic 3D rendering of the assembled PCB showing component placement, mechanical dimensions, 
+                        and physical design verification.
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Technical Highlights -->
+        <div class="info-box animate-on-scroll">
+            <h2>🎯 Technical Highlights</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>📐 Layer Stackup</h3>
+                    <p>4-layer PCB (Signal/Ground/Power/Signal+Ground) with controlled impedance traces</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🚀 Data Rate</h3>
+                    <p>USB 3.0 SuperSpeed (5 Gbps) + USB 2.0 High-Speed (480 Mbps)</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Power Budget</h3>
+                    <p>Up to 60W total from USB PD input with efficient regulation</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Impedance Control</h3>
+                    <p>90Ω differential pairs for USB data lines with proper routing</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔌 Port Capability</h3>
+                    <p>1.5A per port with individual overcurrent protection</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌡️ Temperature Range</h3>
+                    <p>-40°C to +85°C industrial temperature range</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer animate-on-scroll">
+            <h3>⚡ USB-C Power Management System</h3>
+            <p>Complete Technical Documentation Package</p>
+            <p><strong>Designed by: Malaika Tauqeer</strong></p>
+            <p style="font-size: 14px; margin-top: 20px; opacity: 0.8;">
+                Generated: October 2026 | Design Tool: KiCad | Format: HTML Documentation
+            </p>
+            <p style="font-size: 14px; opacity: 0.7; margin-top: 15px;">
+                © 2026 Malaika Tauqeer - Professional-grade USB-C power management and hub solution
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

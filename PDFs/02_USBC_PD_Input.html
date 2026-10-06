@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USB-C PD Input Circuit</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #0066cc;
+            margin: 0;
+            font-size: 32px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .description {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .info-box {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .spec-table th {
+            background: #0066cc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .spec-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .spec-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📥 USB-C PD Input Circuit</h1>
+        <p style="font-size: 18px; color: #666; margin-top: 10px;">Power Delivery Input Stage</p>
+    </div>
+
+    <h2>📋 Circuit Overview</h2>
+    <div class="description">
+        <p><strong>Function:</strong> USB-C Power Delivery input interface and negotiation</p>
+        <p><strong>Purpose:</strong> Accepts USB-C PD input, negotiates power profiles, and provides regulated input to power management stage</p>
+        <p><strong>Key Components:</strong> USB-C connector, CC communication, PD controller</p>
+    </div>
+
+    <h2>📸 Schematic Diagram</h2>
+    <div class="image-container">
+        <img src="../Images/USBC_PD_input.jpeg" alt="USB-C PD Input Schematic">
+        <p style="margin-top: 10px; color: #666;"><em>Figure 1: USB-C PD input circuit with CC lines and configuration</em></p>
+    </div>
+
+    <h2>⚡ Technical Specifications</h2>
+    <table class="spec-table">
+        <tr>
+            <th>Parameter</th>
+            <th>Specification</th>
+        </tr>
+        <tr>
+            <td><strong>Connector Type</strong></td>
+            <td>USB Type-C (24-pin)</td>
+        </tr>
+        <tr>
+            <td><strong>Power Delivery Version</strong></td>
+            <td>USB PD 2.0/3.0 compatible</td>
+        </tr>
+        <tr>
+            <td><strong>Input Voltage Range</strong></td>
+            <td>5V - 20V (USB PD profiles)</td>
+        </tr>
+        <tr>
+            <td><strong>Maximum Current</strong></td>
+            <td>Up to 5A (100W capability)</td>
+        </tr>
+        <tr>
+            <td><strong>CC Communication</strong></td>
+            <td>Configuration Channel for PD negotiation</td>
+        </tr>
+        <tr>
+            <td><strong>Protection</strong></td>
+            <td>Overvoltage, overcurrent, ESD protection</td>
+        </tr>
+    </table>
+
+    <h2>🎯 Key Features</h2>
+    <div class="description">
+        <ul>
+            <li><strong>USB-C Compatibility:</strong> Reversible connector with full PD support</li>
+            <li><strong>Power Profiles:</strong> Supports multiple voltage/current combinations (5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/5A)</li>
+            <li><strong>CC Line Configuration:</strong> Proper CC resistor configuration for power negotiation</li>
+            <li><strong>VBUS Monitoring:</strong> Real-time voltage and current monitoring</li>
+            <li><strong>Hot-plug Support:</strong> Safe connection and disconnection</li>
+        </ul>
+    </div>
+
+    <h2>🔌 Connection Points</h2>
+    <div class="info-box">
+        <p><strong>Inputs:</strong></p>
+        <ul>
+            <li>USB-C VBUS (Power input)</li>
+            <li>CC1, CC2 (Configuration channels)</li>
+            <li>USB 2.0 D+/D- (Optional data lines)</li>
+        </ul>
+        <p><strong>Outputs:</strong></p>
+        <ul>
+            <li>Regulated VBUS to Power Management module</li>
+            <li>PD Status signals</li>
+        </ul>
+    </div>
+
+    <h2>🛡️ Protection Features</h2>
+    <div class="description">
+        <ul>
+            <li>Overvoltage protection (OVP)</li>
+            <li>Overcurrent protection (OCP)</li>
+            <li>ESD protection on all USB-C pins</li>
+            <li>Reverse polarity protection</li>
+            <li>Thermal shutdown</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>USB-C Power Management System - PD Input Module</p>
+        <p>Designed by: <strong>Malaika Tauqeer</strong> | Generated: October 2026</p>
+        <p>Part of hierarchical power management design</p>
+    </div>
+</body>
+</html>

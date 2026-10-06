@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Management Circuit</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #28a745;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #28a745;
+            margin: 0;
+            font-size: 32px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .description {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .info-box {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+        .voltage-rail {
+            background: white;
+            border: 2px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .voltage-rail h3 {
+            color: #28a745;
+            margin-top: 0;
+        }
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .spec-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .spec-grid {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚡ Power Management Circuit</h1>
+        <p style="font-size: 18px; color: #666; margin-top: 10px;">Voltage Regulation & Distribution</p>
+    </div>
+
+    <h2>📋 System Overview</h2>
+    <div class="description">
+        <p><strong>Function:</strong> Multi-rail power supply with efficient voltage regulation</p>
+        <p><strong>Purpose:</strong> Convert USB-C PD input to multiple regulated output voltages for USB hub and downstream ports</p>
+        <p><strong>Architecture:</strong> Buck converters and LDOs for different voltage rails</p>
+    </div>
+
+    <h2>📸 Power Management Schematic</h2>
+    <div class="image-container">
+        <img src="../Images/Power Management.jpeg" alt="Power Management Schematic">
+        <p style="margin-top: 10px; color: #666;"><em>Figure 1: Complete power management and voltage regulation circuitry</em></p>
+    </div>
+
+    <h2>🔋 Voltage Rails</h2>
+    
+    <div class="voltage-rail">
+        <h3>🔴 5V Rail (Main Supply)</h3>
+        <p><strong>Output Voltage:</strong> 5.0V ± 2%</p>
+        <p><strong>Maximum Current:</strong> 3A</p>
+        <p><strong>Topology:</strong> Buck converter (step-down from PD input)</p>
+        <p><strong>Load:</strong> USB hub controller, downstream port power</p>
+    </div>
+
+    <div class="voltage-rail">
+        <h3>🟡 3.3V Rail (Logic Supply)</h3>
+        <p><strong>Output Voltage:</strong> 3.3V ± 3%</p>
+        <p><strong>Maximum Current:</strong> 1.5A</p>
+        <p><strong>Topology:</strong> LDO or buck converter from 5V</p>
+        <p><strong>Load:</strong> Digital logic, microcontroller, I/O interfaces</p>
+    </div>
+
+    <div class="voltage-rail">
+        <h3>🟢 1.8V Rail (Low Voltage Logic)</h3>
+        <p><strong>Output Voltage:</strong> 1.8V ± 3%</p>
+        <p><strong>Maximum Current:</strong> 500mA</p>
+        <p><strong>Topology:</strong> LDO from 3.3V</p>
+        <p><strong>Load:</strong> Core logic, optional peripherals</p>
+    </div>
+
+    <h2>🎯 Key Features</h2>
+    <div class="spec-grid">
+        <div class="spec-card">
+            <h3>⚙️ Efficiency</h3>
+            <ul>
+                <li>High-efficiency buck converters (>90%)</li>
+                <li>Low quiescent current LDOs</li>
+                <li>Synchronous rectification</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>🛡️ Protection</h3>
+            <ul>
+                <li>Over-current protection (OCP)</li>
+                <li>Over-voltage protection (OVP)</li>
+                <li>Thermal shutdown (TSD)</li>
+                <li>Short-circuit protection</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>📊 Monitoring</h3>
+            <ul>
+                <li>Power-good signals</li>
+                <li>Enable/disable control</li>
+                <li>Voltage monitoring points</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>🔧 Control</h3>
+            <ul>
+                <li>Soft-start circuitry</li>
+                <li>Sequencing capability</li>
+                <li>Adjustable output voltage</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>🔌 Power Distribution</h2>
+    <div class="info-box">
+        <p><strong>Input Power:</strong></p>
+        <ul>
+            <li>Source: USB-C PD (5V-20V, negotiated)</li>
+            <li>Typical Input: 12V or 15V profile</li>
+        </ul>
+        <p><strong>Output Distribution:</strong></p>
+        <ul>
+            <li>5V → USB Hub Controller, Downstream USB ports</li>
+            <li>3.3V → Hub logic, control circuits</li>
+            <li>1.8V → Core logic (if required)</li>
+        </ul>
+    </div>
+
+    <h2>📐 Design Specifications</h2>
+    <div class="description">
+        <ul>
+            <li><strong>Total Power Budget:</strong> Up to 60W (from USB PD)</li>
+            <li><strong>Number of Rails:</strong> 3 main voltage rails (5V, 3.3V, 1.8V)</li>
+            <li><strong>Load Regulation:</strong> <1% line regulation</li>
+            <li><strong>Ripple & Noise:</strong> <50mV peak-to-peak</li>
+            <li><strong>Transient Response:</strong> <50µs settling time</li>
+            <li><strong>Operating Temperature:</strong> -40°C to +85°C</li>
+        </ul>
+    </div>
+
+    <h2>🔗 Interconnections</h2>
+    <div class="info-box">
+        <p><strong>Input Connections:</strong></p>
+        <ul>
+            <li>VBUS from USB-C PD Input module</li>
+            <li>Enable signals from system controller</li>
+        </ul>
+        <p><strong>Output Connections:</strong></p>
+        <ul>
+            <li>5V to Hub Controller module</li>
+            <li>5V to Downstream Ports module</li>
+            <li>3.3V to Hub Controller logic</li>
+            <li>Power-good signals to system</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>USB-C Power Management System - Power Regulation Module</p>
+        <p>Designed by: <strong>Malaika Tauqeer</strong> | Generated: October 2026</p>
+        <p>Efficient multi-rail power supply design</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D PCB Visualization</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 20mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #20c997;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #20c997;
+            margin: 0;
+            font-size: 32px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .description {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #20c997;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .info-box {
+            background: #d1f2eb;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #20c997;
+        }
+        .component-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .component-card {
+            background: white;
+            border: 2px solid #20c997;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .component-card h3 {
+            color: #20c997;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #d1f2eb 0%, #ffffff 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #20c997;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .component-grid {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 3D PCB Visualization</h1>
+        <p style="font-size: 18px; color: #666; margin-top: 10px;">3D Board Rendering & Component Visualization</p>
+    </div>
+
+    <h2>📋 3D Model Overview</h2>
+    <div class="description">
+        <p><strong>Visualization Tool:</strong> KiCad 3D Viewer</p>
+        <p><strong>Purpose:</strong> Physical design verification, mechanical clearance check, and presentation</p>
+        <p><strong>Model Fidelity:</strong> Full 3D models with accurate component shapes and colors</p>
+    </div>
+
+    <h2>📸 3D Board Rendering</h2>
+    <div class="image-container">
+        <img src="../Images/USBC Power 3D View.jpeg" alt="3D PCB View">
+        <p style="margin-top: 10px; color: #666;"><em>Figure 1: 3D rendered view of the USB-C Power Management PCB assembly</em></p>
+    </div>
+
+    <h2>🔍 Visible Components & Layout</h2>
+    
+    <div class="highlight-box">
+        <h3 style="text-align: center; color: #20c997; margin-top: 0;">Board Assembly Highlights</h3>
+        <p style="text-align: center;">The 3D view shows the complete assembled PCB with all major components, connectors, and mechanical features.</p>
+    </div>
+
+    <div class="component-grid">
+        <div class="component-card">
+            <h3>🔌 Input Section (Front)</h3>
+            <ul>
+                <li><strong>USB-C Connector:</strong> 24-pin Type-C receptacle for power and data input</li>
+                <li><strong>PD Controller IC:</strong> USB Power Delivery negotiation chip</li>
+                <li><strong>Input Protection:</strong> ESD protection diodes, TVS devices</li>
+                <li><strong>Input Caps:</strong> Bulk capacitors for input filtering</li>
+            </ul>
+        </div>
+        
+        <div class="component-card">
+            <h3>⚡ Power Management Section</h3>
+            <ul>
+                <li><strong>Buck Converter ICs:</strong> Step-down regulators (visible as large ICs)</li>
+                <li><strong>Inductors:</strong> Power inductors (typically cylindrical or rectangular)</li>
+                <li><strong>Bulk Capacitors:</strong> Electrolytic and ceramic caps for filtering</li>
+                <li><strong>LDOs:</strong> Linear regulators for clean low-current rails</li>
+            </ul>
+        </div>
+        
+        <div class="component-card">
+            <h3>🔧 Hub Controller Section</h3>
+            <ul>
+                <li><strong>USB Hub IC:</strong> Main hub controller (largest IC on board)</li>
+                <li><strong>Crystal:</strong> Precision timing crystal (small rectangular component)</li>
+                <li><strong>Decoupling Caps:</strong> Multiple small ceramic capacitors around IC</li>
+                <li><strong>Configuration:</strong> Pull-up/pull-down resistors, config EEPROM (optional)</li>
+            </ul>
+        </div>
+        
+        <div class="component-card">
+            <h3>🔗 Output Section (Rear)</h3>
+            <ul>
+                <li><strong>USB Type-A Ports:</strong> 4× USB 3.0 Type-A receptacles</li>
+                <li><strong>Power Switches:</strong> Load switch ICs for each port</li>
+                <li><strong>ESD Protection:</strong> TVS diode arrays near each port</li>
+                <li><strong>Status LEDs:</strong> Port activity/power indicators (optional)</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>📐 Physical Characteristics</h2>
+    <div class="info-box">
+        <h3>Board Dimensions & Mechanical:</h3>
+        <ul>
+            <li><strong>Board Thickness:</strong> 1.6mm (standard PCB)</li>
+            <li><strong>Component Height:</strong> Tallest components ~8-12mm (connectors and inductors)</li>
+            <li><strong>Connector Placement:</strong> USB-C on one edge, Type-A ports on opposite edge</li>
+            <li><strong>Mounting Holes:</strong> 4× mounting holes at corners (M3 or similar)</li>
+            <li><strong>Keep-out Zones:</strong> Clear area around connectors for cable insertion</li>
+        </ul>
+    </div>
+
+    <h2>🎨 Visual Features in 3D Model</h2>
+    <div class="description">
+        <h3>Color Coding & Materials:</h3>
+        <ul>
+            <li><strong>PCB Substrate:</strong> Green solder mask (standard FR-4)</li>
+            <li><strong>Copper Pads:</strong> Gold/silver finish (ENIG or HASL)</li>
+            <li><strong>Components:</strong> Black IC packages, silver metal shields</li>
+            <li><strong>Connectors:</strong> White/gray plastic with metal contacts</li>
+            <li><strong>Capacitors:</strong> Brown/tan ceramic, blue/black electrolytic</li>
+            <li><strong>Inductors:</strong> Black or gray with ferrite/metal core</li>
+            <li><strong>Silkscreen:</strong> White text and component outlines</li>
+        </ul>
+    </div>
+
+    <h2>🔧 Design Verification Benefits</h2>
+    <div class="component-grid">
+        <div class="component-card">
+            <h3>✅ Mechanical Clearance</h3>
+            <p>Verify that components don't interfere with each other or enclosure walls</p>
+        </div>
+        <div class="component-card">
+            <h3>✅ Connector Accessibility</h3>
+            <p>Ensure USB connectors are accessible and cables can be plugged in</p>
+        </div>
+        <div class="component-card">
+            <h3>✅ Assembly Feasibility</h3>
+            <p>Check that all components can be placed and soldered without issues</p>
+        </div>
+        <div class="component-card">
+            <h3>✅ Visual Presentation</h3>
+            <p>Professional rendering for documentation and client presentations</p>
+        </div>
+    </div>
+
+    <h2>🛠️ 3D Model Features</h2>
+    <div class="info-box">
+        <h3>KiCad 3D Viewer Capabilities:</h3>
+        <ul>
+            <li>✅ <strong>Rotation:</strong> View board from any angle (top, bottom, isometric)</li>
+            <li>✅ <strong>Zoom:</strong> Inspect specific areas in detail</li>
+            <li>✅ <strong>Layer Control:</strong> Show/hide copper layers, silkscreen, solder mask</li>
+            <li>✅ <strong>Component Visibility:</strong> Toggle individual components on/off</li>
+            <li>✅ <strong>Export:</strong> Export 3D models in STEP, VRML, or image formats</li>
+            <li>✅ <strong>Measurements:</strong> Check physical dimensions and clearances</li>
+            <li>✅ <strong>Realistic Rendering:</strong> Raytracing for photorealistic output</li>
+        </ul>
+    </div>
+
+    <h2>📦 Enclosure Integration</h2>
+    <div class="description">
+        <h3>Mechanical Considerations:</h3>
+        <ul>
+            <li><strong>Mounting:</strong> 4 corner holes for standoff mounting</li>
+            <li><strong>Connector Cutouts:</strong> USB-C input and 4× USB-A outputs require panel cutouts</li>
+            <li><strong>Ventilation:</strong> Consider airflow for power components (passive cooling)</li>
+            <li><strong>LED Visibility:</strong> If LEDs present, provide light pipes or clear windows</li>
+            <li><strong>Height Clearance:</strong> Minimum enclosure height = PCB thickness + tallest component + clearance</li>
+        </ul>
+    </div>
+
+    <h2>🎯 Quality Assurance</h2>
+    <div class="highlight-box">
+        <h3>Pre-Manufacturing Checks:</h3>
+        <ul>
+            <li>✅ Component placement verified in 3D</li>
+            <li>✅ No component collisions or clearance issues</li>
+            <li>✅ Connectors properly oriented for cable access</li>
+            <li>✅ Adequate space for heat dissipation</li>
+            <li>✅ Board fits within target enclosure dimensions</li>
+            <li>✅ Mounting holes properly positioned</li>
+            <li>✅ All components have accurate 3D models</li>
+        </ul>
+    </div>
+
+    <h2>📸 Additional Views</h2>
+    <div class="info-box">
+        <p>The 3D model can be viewed from multiple perspectives:</p>
+        <ul>
+            <li><strong>Top View:</strong> Shows component layout and placement density</li>
+            <li><strong>Bottom View:</strong> Displays bottom-side components and solder pads</li>
+            <li><strong>Isometric View:</strong> Best for overall visualization (as shown in image)</li>
+            <li><strong>Edge Views:</strong> Shows board profile, connector heights, and layer stack</li>
+        </ul>
+    </div>
+
+    <h2>💡 Design Benefits</h2>
+    <div class="description">
+        <ul>
+            <li>Early detection of mechanical design issues before manufacturing</li>
+            <li>Professional presentation for stakeholders and clients</li>
+            <li>Accurate enclosure design with proper cutouts</li>
+            <li>Assembly process planning and optimization</li>
+            <li>Documentation for manufacturing and assembly teams</li>
+            <li>Marketing and promotional material generation</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>USB-C Power Management System - 3D Visualization</p>
+        <p>Designed by: <strong>Malaika Tauqeer</strong> | Generated: October 2026</p>
+        <p>Photorealistic 3D rendering for design verification and presentation</p>
+    </div>
+</body>
+</html>

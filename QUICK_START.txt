@@ -1,0 +1,125 @@
+═══════════════════════════════════════════════════
+🚀 5-MINUTE QUICK START (GITHUB + VERCEL)
+═══════════════════════════════════════════════════
+
+█████ STEP 1: OPEN TERMINAL (10 seconds)
+═════════════════════════════════════════
+Right-click on "Project_Documentation" folder
+→ "Open in Terminal" or "Git Bash Here"
+
+
+█████ STEP 2: COPY-PASTE THESE COMMANDS (2 minutes)
+════════════════════════════════════════════════════
+
+git init
+git add .
+git commit -m "USB-C Power Management Documentation"
+
+
+█████ STEP 3: CREATE GITHUB REPO (1 minute)
+════════════════════════════════════════════
+1. Browser me jao: github.com/new
+2. Name: usb-c-power-management
+3. Public
+4. Create repository
+5. Copy the URL shown (looks like):
+   https://github.com/YOUR_USERNAME/usb-c-power-management.git
+
+
+█████ STEP 4: PUSH TO GITHUB (30 seconds)
+══════════════════════════════════════════
+
+# Replace YOUR_USERNAME with your actual GitHub username
+git remote add origin https://github.com/YOUR_USERNAME/usb-c-power-management.git
+git branch -M main
+git push -u origin main
+
+
+█████ STEP 5: DEPLOY ON VERCEL (1 minute)
+══════════════════════════════════════════
+1. vercel.com/dashboard
+2. "Add New" → "Project"
+3. "Import" your repository
+4. "Deploy"
+5. DONE! 🎉
+
+
+═══════════════════════════════════════════════════
+✅ YOUR LIVE URL
+═══════════════════════════════════════════════════
+
+https://usb-c-power-management.vercel.app
+
+Share karo:
+📱 WhatsApp
+💼 LinkedIn
+📧 Email
+📄 Resume
+
+
+═══════════════════════════════════════════════════
+⚡ EVEN FASTER: VERCEL CLI
+═══════════════════════════════════════════════════
+
+# One-time install
+npm install -g vercel
+
+# Then just:
+vercel
+
+# Follow prompts, press Enter for defaults
+# Done in 30 seconds! 🚀
+
+
+═══════════════════════════════════════════════════
+🎯 WHAT YOU GET
+═══════════════════════════════════════════════════
+
+✅ Professional live website
+✅ All pictures working
+✅ Shareable link
+✅ Auto-updates when you push to GitHub
+✅ Free forever
+✅ SSL certificate (https)
+✅ Fast loading worldwide
+
+
+═══════════════════════════════════════════════════
+💡 PRO TIP
+═══════════════════════════════════════════════════
+
+Custom URL:
+Default: usb-c-power-management-abc123.vercel.app
+Custom:  malaika-portfolio.vercel.app
+
+Vercel Dashboard → Settings → Domains → Change
+
+
+═══════════════════════════════════════════════════
+📞 STUCK? TRY THIS
+═══════════════════════════════════════════════════
+
+Error: "git not found"
+Fix: Download from git-scm.com, install, restart terminal
+
+Error: "Permission denied"
+Fix: Check GitHub login, try: gh auth login
+
+Error: "Images not loading"
+Fix: Redeploy from Vercel dashboard
+
+Error: "404 page"
+Fix: Main branch selected? Check vercel.json file exists
+
+
+═══════════════════════════════════════════════════
+🎉 SUCCESS!
+═══════════════════════════════════════════════════
+
+Portfolio live ✅
+Pictures working ✅
+Professional URL ✅
+Ready to share ✅
+
+CONGRATULATIONS! 🎊
+

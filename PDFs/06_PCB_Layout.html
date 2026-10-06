@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCB Layout Design</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #dc3545;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #dc3545;
+            margin: 0;
+            font-size: 32px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .description {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .info-box {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #dc3545;
+        }
+        .layer-info {
+            background: white;
+            border: 2px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .layer-info h3 {
+            color: #dc3545;
+            margin-top: 0;
+        }
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .spec-card {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 3px solid #dc3545;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .spec-grid {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🖥️ PCB Layout Design</h1>
+        <p style="font-size: 18px; color: #666; margin-top: 10px;">Multi-Layer Board Layout & Routing</p>
+    </div>
+
+    <h2>📋 PCB Overview</h2>
+    <div class="description">
+        <p><strong>Board Name:</strong> USB-C Power Management Hub</p>
+        <p><strong>Layer Count:</strong> 4-layer PCB (recommended for high-speed USB 3.0)</p>
+        <p><strong>Board Size:</strong> Optimized for compact form factor</p>
+        <p><strong>Design Tool:</strong> KiCad 7.x/8.x</p>
+    </div>
+
+    <h2>📸 PCB Layout View</h2>
+    <div class="image-container">
+        <img src="../Images/USBC Power PCB.jpeg" alt="PCB Layout">
+        <p style="margin-top: 10px; color: #666;"><em>Figure 1: Complete PCB layout showing component placement and routing</em></p>
+    </div>
+
+    <h2>🎨 Layer Stack-up</h2>
+    
+    <div class="layer-info">
+        <h3>Layer 1 (Top Layer - Signal + Components)</h3>
+        <p><strong>Function:</strong> Component placement and primary signal routing</p>
+        <ul>
+            <li>USB-C connector and downstream USB Type-A connectors</li>
+            <li>Power management ICs and passives</li>
+            <li>Hub controller IC and support components</li>
+            <li>High-speed USB 3.0 differential pairs</li>
+            <li>Critical signal traces</li>
+            <li>Silkscreen and solder mask</li>
+        </ul>
+    </div>
+
+    <div class="layer-info">
+        <h3>Layer 2 (Inner Layer 1 - Ground Plane)</h3>
+        <p><strong>Function:</strong> Continuous ground plane for return paths and shielding</p>
+        <ul>
+            <li>Solid ground plane (minimal splits)</li>
+            <li>Provides low-impedance return path for signals</li>
+            <li>EMI shielding between layers</li>
+            <li>Heat spreading for thermal management</li>
+        </ul>
+    </div>
+
+    <div class="layer-info">
+        <h3>Layer 3 (Inner Layer 2 - Power Plane)</h3>
+        <p><strong>Function:</strong> Power distribution planes</p>
+        <ul>
+            <li>5V power plane (primary)</li>
+            <li>3.3V power plane section</li>
+            <li>1.8V power plane section (if needed)</li>
+            <li>Power plane splits for isolation</li>
+            <li>Low-impedance power distribution</li>
+        </ul>
+    </div>
+
+    <div class="layer-info">
+        <h3>Layer 4 (Bottom Layer - Signal + Ground)</h3>
+        <p><strong>Function:</strong> Additional routing and ground pour</p>
+        <ul>
+            <li>Secondary signal routing</li>
+            <li>Power traces and distribution</li>
+            <li>Bottom-side components (if any)</li>
+            <li>Ground fill for continuous ground plane</li>
+            <li>Silkscreen and solder mask</li>
+        </ul>
+    </div>
+
+    <h2>📐 Design Specifications</h2>
+    <div class="spec-grid">
+        <div class="spec-card">
+            <h3>📏 Dimensions</h3>
+            <ul>
+                <li><strong>Board Thickness:</strong> 1.6mm (standard)</li>
+                <li><strong>Copper Weight:</strong> 1 oz (35µm) on all layers</li>
+                <li><strong>Form Factor:</strong> Compact rectangular</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>🔧 Trace Specifications</h3>
+            <ul>
+                <li><strong>Min Trace Width:</strong> 6 mil (0.15mm)</li>
+                <li><strong>Min Spacing:</strong> 6 mil (0.15mm)</li>
+                <li><strong>Power Traces:</strong> 20-40 mil (0.5-1.0mm)</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>⚡ High-Speed Routing</h3>
+            <ul>
+                <li><strong>USB 3.0 Pairs:</strong> 90Ω differential</li>
+                <li><strong>USB 2.0 Pairs:</strong> 90Ω differential</li>
+                <li><strong>Length Matching:</strong> ±5 mils within pair</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>🕳️ Vias</h3>
+            <ul>
+                <li><strong>Standard Via:</strong> 0.3mm drill, 0.6mm pad</li>
+                <li><strong>Power Via:</strong> 0.5mm drill, 0.8mm pad</li>
+                <li><strong>Via Stitching:</strong> Every 5mm on ground</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>🔌 Component Placement Strategy</h2>
+    <div class="info-box">
+        <h3>Placement Zones:</h3>
+        <ul>
+            <li><strong>Input Zone:</strong> USB-C connector, PD controller, input protection at board edge</li>
+            <li><strong>Power Zone:</strong> Buck converters, LDOs, bulk capacitors in central area</li>
+            <li><strong>Hub Zone:</strong> USB hub controller IC with crystal and decoupling</li>
+            <li><strong>Output Zone:</strong> USB Type-A connectors at opposite edge with power switches</li>
+        </ul>
+    </div>
+
+    <h2>🎯 Critical Routing Guidelines</h2>
+    <div class="description">
+        <h3>USB 3.0 SuperSpeed Routing:</h3>
+        <ul>
+            <li>✅ Differential pair routing with 90Ω controlled impedance</li>
+            <li>✅ Keep pairs together, minimize length difference (<5 mils)</li>
+            <li>✅ Avoid vias in differential pairs when possible</li>
+            <li>✅ Reference to solid ground plane on Layer 2</li>
+            <li>✅ Minimum 3× trace width spacing from other signals</li>
+            <li>✅ No 90° angles (use 45° or curved)</li>
+        </ul>
+        <h3>USB 2.0 Routing:</h3>
+        <ul>
+            <li>✅ 90Ω differential pair impedance</li>
+            <li>✅ Keep D+ and D- traces parallel and matched in length</li>
+            <li>✅ Series termination resistors (22-33Ω) close to source</li>
+        </ul>
+        <h3>Power Routing:</h3>
+        <ul>
+            <li>✅ Wide traces for high current paths (≥40 mil for 3A+)</li>
+            <li>✅ Star ground connection at input</li>
+            <li>✅ Separate analog and digital grounds (connected at one point)</li>
+            <li>✅ Power plane pour on Layer 3 with stitching vias</li>
+        </ul>
+    </div>
+
+    <h2>🛡️ EMI/EMC Considerations</h2>
+    <div class="info-box">
+        <ul>
+            <li><strong>Ground Stitching:</strong> Via stitching every 5mm around high-speed signals</li>
+            <li><strong>Guard Traces:</strong> Ground guard traces around USB differential pairs</li>
+            <li><strong>Filtering:</strong> Common-mode chokes on USB data lines</li>
+            <li><strong>Decoupling:</strong> Multiple capacitors (bulk + ceramic) near each IC</li>
+            <li><strong>Shielding:</strong> Ground pour on top and bottom layers where possible</li>
+            <li><strong>Keep-out Zones:</strong> No traces under USB connectors (reduce EMI)</li>
+        </ul>
+    </div>
+
+    <h2>🌡️ Thermal Management</h2>
+    <div class="description">
+        <ul>
+            <li><strong>Heat Sinking:</strong> Large copper pours under power ICs</li>
+            <li><strong>Thermal Vias:</strong> Multiple thermal vias under IC thermal pads</li>
+            <li><strong>Airflow:</strong> Component placement allows natural convection</li>
+            <li><strong>Hot Spots:</strong> Power switches and buck converter ICs properly cooled</li>
+        </ul>
+    </div>
+
+    <h2>🔍 Design Rules</h2>
+    <div class="spec-grid">
+        <div class="spec-card">
+            <h3>Clearances</h3>
+            <ul>
+                <li>Trace-to-trace: 6 mil</li>
+                <li>Trace-to-pad: 6 mil</li>
+                <li>High voltage: 15 mil</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>Annular Rings</h3>
+            <ul>
+                <li>Minimum: 4 mil</li>
+                <li>Preferred: 6 mil</li>
+                <li>Ensures reliability</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>Solder Mask</h3>
+            <ul>
+                <li>Clearance: 3 mil</li>
+                <li>Dam width: 8 mil</li>
+                <li>Color: Green (standard)</li>
+            </ul>
+        </div>
+        <div class="spec-card">
+            <h3>Silkscreen</h3>
+            <ul>
+                <li>Line width: 6 mil min</li>
+                <li>Text height: 40 mil min</li>
+                <li>Color: White on green</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>✅ Manufacturing Specifications</h2>
+    <div class="info-box">
+        <ul>
+            <li><strong>PCB Standard:</strong> IPC Class 2 or Class 3</li>
+            <li><strong>Surface Finish:</strong> ENIG (Electroless Nickel Immersion Gold) or HASL</li>
+            <li><strong>Solder Mask:</strong> Green LPI (Liquid Photo-Imageable)</li>
+            <li><strong>Silkscreen:</strong> White legend on top and bottom</li>
+            <li><strong>Testing:</strong> Electrical test (flying probe or fixture)</li>
+            <li><strong>Impedance Control:</strong> ±10% tolerance on 90Ω differential pairs</li>
+        </ul>
+    </div>
+
+    <h2>📦 Assembly Notes</h2>
+    <div class="description">
+        <ul>
+            <li>SMT assembly for most components (compact, automated)</li>
+            <li>Through-hole USB connectors for mechanical strength</li>
+            <li>Reflow profile: Lead-free (SAC305) at 245°C peak</li>
+            <li>Manual assembly of USB connectors after reflow</li>
+            <li>AOI (Automated Optical Inspection) recommended</li>
+            <li>Functional testing of all USB ports and power rails</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>USB-C Power Management System - PCB Layout Documentation</p>
+        <p>Designed by: <strong>Malaika Tauqeer</strong> | Generated: October 2026</p>
+        <p>4-Layer PCB with USB 3.0 high-speed design</p>
+    </div>
+</body>
+</html>

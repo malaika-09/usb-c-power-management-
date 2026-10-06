@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USB-C Power Management - Root Sheet</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #0066cc;
+            margin: 0;
+            font-size: 32px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .description {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .info-box {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔌 USB-C Power Management System</h1>
+        <p style="font-size: 18px; color: #666; margin-top: 10px;">Root Sheet - Hierarchical Overview</p>
+    </div>
+
+    <h2>📋 Project Overview</h2>
+    <div class="description">
+        <p><strong>Project Name:</strong> USB-C Power Management System</p>
+        <p><strong>Design Tool:</strong> KiCad (PCB Design)</p>
+        <p><strong>Purpose:</strong> Multi-layer power management solution with USB-C PD support and hub controller integration</p>
+        <p><strong>Document Type:</strong> Root Schematic - Top-level hierarchical sheet</p>
+    </div>
+
+    <h2>🗂️ Hierarchical Structure</h2>
+    <div class="info-box">
+        <p><strong>This root sheet contains the following sub-modules:</strong></p>
+        <ul>
+            <li>📥 USBC PD Input - Power Delivery input circuitry</li>
+            <li>⚡ Power Management - Voltage regulation and distribution</li>
+            <li>🔌 Hub Controller - USB hub management IC</li>
+            <li>🔗 Downstream Ports - USB output ports configuration</li>
+        </ul>
+    </div>
+
+    <h2>📸 Root Sheet Schematic</h2>
+    <div class="image-container">
+        <img src="../Images/USBC Power Root Sheet.jpeg" alt="USB-C Power Root Sheet">
+        <p style="margin-top: 10px; color: #666;"><em>Figure 1: Root Sheet showing hierarchical block structure</em></p>
+    </div>
+
+    <h2>🎯 Design Features</h2>
+    <div class="description">
+        <ul>
+            <li><strong>Modular Design:</strong> Clear separation of functional blocks</li>
+            <li><strong>USB-C PD Support:</strong> Modern power delivery standard</li>
+            <li><strong>Multi-Port Hub:</strong> USB hub controller for multiple downstream ports</li>
+            <li><strong>Power Management:</strong> Efficient voltage regulation and distribution</li>
+            <li><strong>Hierarchical Approach:</strong> Easy to understand and maintain</li>
+        </ul>
+    </div>
+
+    <h2>🔗 Related Documents</h2>
+    <div class="info-box">
+        <ul>
+            <li>02_USBC_PD_Input.html - USB-C PD input detailed schematic</li>
+            <li>03_Power_Management.html - Power regulation circuits</li>
+            <li>04_Hub_Controller.html - USB hub controller details</li>
+            <li>05_Downstream_Ports.html - USB output ports</li>
+            <li>06_PCB_Layout.html - PCB design and layout</li>
+            <li>07_3D_View.html - 3D visualization of the board</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>USB-C Power Management System | Designed by: <strong>Malaika Tauqeer</strong></p>
+        <p>Electrical Engineer | Generated: October 2026</p>
+        <p>Design files available in KiCad format</p>
+    </div>
+</body>
+</html>

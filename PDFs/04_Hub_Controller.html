@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USB Hub Controller</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #6610f2;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #6610f2;
+            margin: 0;
+            font-size: 32px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .description {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #6610f2;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .info-box {
+            background: #e7e3fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #6610f2;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 3px solid #6610f2;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .spec-table th {
+            background: #6610f2;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .spec-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .spec-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .feature-grid {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔌 USB Hub Controller</h1>
+        <p style="font-size: 18px; color: #666; margin-top: 10px;">USB 3.0/2.0 Hub Management IC</p>
+    </div>
+
+    <h2>📋 Controller Overview</h2>
+    <div class="description">
+        <p><strong>Function:</strong> USB hub controller for multi-port USB expansion</p>
+        <p><strong>Purpose:</strong> Manages USB data communication and port enumeration for multiple downstream devices</p>
+        <p><strong>IC Type:</strong> USB 3.0/2.0 compatible hub controller</p>
+    </div>
+
+    <h2>📸 Hub Controller Schematic</h2>
+    <div class="image-container">
+        <img src="../Images/Hub_Controllers.jpeg" alt="USB Hub Controller Schematic">
+        <p style="margin-top: 10px; color: #666;"><em>Figure 1: USB hub controller circuit with crystal, configuration, and USB connections</em></p>
+    </div>
+
+    <h2>⚡ Technical Specifications</h2>
+    <table class="spec-table">
+        <tr>
+            <th>Parameter</th>
+            <th>Specification</th>
+        </tr>
+        <tr>
+            <td><strong>USB Standard</strong></td>
+            <td>USB 3.0 / USB 2.0 backward compatible</td>
+        </tr>
+        <tr>
+            <td><strong>Number of Ports</strong></td>
+            <td>4-7 downstream ports (configurable)</td>
+        </tr>
+        <tr>
+            <td><strong>Data Rate</strong></td>
+            <td>5 Gbps (USB 3.0), 480 Mbps (USB 2.0)</td>
+        </tr>
+        <tr>
+            <td><strong>Power Per Port</strong></td>
+            <td>Up to 1.5A per port (with proper power management)</td>
+        </tr>
+        <tr>
+            <td><strong>Crystal Frequency</strong></td>
+            <td>12 MHz or 24 MHz (typical)</td>
+        </tr>
+        <tr>
+            <td><strong>Supply Voltage</strong></td>
+            <td>3.3V (logic), 1.2V (core - internal regulator)</td>
+        </tr>
+        <tr>
+            <td><strong>Operating Temperature</strong></td>
+            <td>-40°C to +85°C</td>
+        </tr>
+    </table>
+
+    <h2>🎯 Key Features</h2>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <strong>🚀 High-Speed Data</strong>
+            <p>USB 3.0 SuperSpeed support with 5 Gbps bandwidth</p>
+        </div>
+        <div class="feature-item">
+            <strong>🔄 Backward Compatible</strong>
+            <p>Full USB 2.0 and USB 1.1 device support</p>
+        </div>
+        <div class="feature-item">
+            <strong>⚡ Power Management</strong>
+            <p>Individual port power control and overcurrent detection</p>
+        </div>
+        <div class="feature-item">
+            <strong>🔌 Multiple Ports</strong>
+            <p>4-7 configurable downstream USB ports</p>
+        </div>
+        <div class="feature-item">
+            <strong>🛡️ Protection</strong>
+            <p>Overcurrent protection on each port</p>
+        </div>
+        <div class="feature-item">
+            <strong>🔧 Configuration</strong>
+            <p>EEPROM or pin-strap configuration options</p>
+        </div>
+    </div>
+
+    <h2>🔌 Port Configuration</h2>
+    <div class="info-box">
+        <p><strong>Upstream Port (Host Connection):</strong></p>
+        <ul>
+            <li>USB 3.0 SuperSpeed TX/RX pairs</li>
+            <li>USB 2.0 D+/D- differential pair</li>
+            <li>Connected to USB-C PD input module</li>
+        </ul>
+        <p><strong>Downstream Ports (Device Connection):</strong></p>
+        <ul>
+            <li>4-7 individual USB ports</li>
+            <li>Each port supports USB 3.0 and USB 2.0</li>
+            <li>Individual power switching per port</li>
+            <li>Overcurrent detection per port</li>
+        </ul>
+    </div>
+
+    <h2>🔧 Support Circuitry</h2>
+    <div class="description">
+        <ul>
+            <li><strong>Crystal Oscillator:</strong> 12MHz or 24MHz crystal with load capacitors for precise timing</li>
+            <li><strong>Power Decoupling:</strong> Multiple decoupling capacitors for clean power supply</li>
+            <li><strong>Configuration Pins:</strong> Pin-strap resistors or EEPROM for hub configuration</li>
+            <li><strong>Reset Circuit:</strong> Power-on reset and external reset capability</li>
+            <li><strong>USB Signal Conditioning:</strong> Series termination resistors on USB data lines</li>
+            <li><strong>LEDs:</strong> Port activity and status indication (optional)</li>
+        </ul>
+    </div>
+
+    <h2>📊 Hub Functions</h2>
+    <div class="info-box">
+        <h3>Core Capabilities:</h3>
+        <ul>
+            <li>✅ USB device enumeration and management</li>
+            <li>✅ Traffic routing between upstream and downstream ports</li>
+            <li>✅ Suspend and resume state management</li>
+            <li>✅ Hot-plug detection and handling</li>
+            <li>✅ Error detection and recovery</li>
+            <li>✅ Port power management (on/off control)</li>
+            <li>✅ Overcurrent protection and reporting</li>
+        </ul>
+    </div>
+
+    <h2>🔗 Connection to Other Modules</h2>
+    <div class="description">
+        <p><strong>Input Connections:</strong></p>
+        <ul>
+            <li>5V and 3.3V power from Power Management module</li>
+            <li>USB upstream connection from USB-C PD Input</li>
+            <li>Configuration signals (if external EEPROM used)</li>
+        </ul>
+        <p><strong>Output Connections:</strong></p>
+        <ul>
+            <li>USB downstream ports to Downstream Ports module</li>
+            <li>Power control signals to port switches</li>
+            <li>Overcurrent fault signals</li>
+            <li>Status LEDs (optional)</li>
+        </ul>
+    </div>
+
+    <h2>🛠️ Configuration Options</h2>
+    <div class="info-box">
+        <ul>
+            <li><strong>Mode Selection:</strong> Bus-powered or self-powered hub</li>
+            <li><strong>Port Count:</strong> Enable/disable individual ports</li>
+            <li><strong>Current Limit:</strong> Set per-port current limits</li>
+            <li><strong>Descriptor Strings:</strong> Custom VID/PID, manufacturer info (via EEPROM)</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>USB-C Power Management System - Hub Controller Module</p>
+        <p>Designed by: <strong>Malaika Tauqeer</strong> | Generated: October 2026</p>
+        <p>USB 3.0 high-speed multi-port hub implementation</p>
+    </div>
+</body>
+</html>
